@@ -48,6 +48,8 @@ export default function Testing() {
           </table>
         </div>
       ))}
+
+      <button><a href="/server/routes/DataFetch.js">Generate CSV</a></button>
       {/* ) : ( */}
       {/* <p>Loading..</p> */}
       {/* )} */}

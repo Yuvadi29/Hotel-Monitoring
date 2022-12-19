@@ -1,14 +1,10 @@
-// import mysql from 'mysql';
+import mongoose from "mongoose";
+mongoose.set('strictQuery', true);
 
-const mysql = require('mysql');
-
-//Creating a mysql connection
-const connection = mysql.createConnection({
-    host: "localhost", //Host of the database
-    user: "root", //Username of database
-    password: "", //Password of database
-    database: "readings" //Database name
+mongoose.connect("mongodb+srv://Aditya:AdityaDev@cluster0.uzqbd0e.mongodb.net/Hotel_Monitoring?retryWrites=true&w=majority").then(() => {
+    console.log(`Database connection established`);
+}).catch((err) => {
+    console.log(`Connection is not established due to error: ${err}`);
 })
 
-// module.exports = db;
-connection.connect();
+exports.modules={}
