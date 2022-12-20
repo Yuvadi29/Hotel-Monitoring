@@ -1,11 +1,8 @@
-import express from "express"
-import router from  express.Router()
+import express from "express";
+const router = express.Router();
 
-router.get("/",(req,res)=>{
+import { getTempData } from "../controllers/Logic.js";
 
-    res.send("hlw")
+router.get("/", getTempData);
 
-
-})
-
-module.exports=router
+module.exports = router;

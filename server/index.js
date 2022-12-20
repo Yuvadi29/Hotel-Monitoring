@@ -1,11 +1,24 @@
-import fetch from "node-fetch"
+import express from 'express';
+import json from 'express';
+import cors from 'cors';
+import { set, connect } from 'mongoose';
 
-import exceljs from "exceljs";
-// import db from "./config/db"
-import "./config/db"
-import DataFetch from "./models/tempSchema"
+const app = express();
+// import Temperature from './models/temperature.js';
 
- 
+
+app.use(cors());
+app.use(json());
+
+set('strictQuery', true);
+
+connect("mongodb+srv://Aditya:AdityaDev@cluster0.uzqbd0e.mongodb.net/Hotel_Monitoring?retryWrites=true&w=majority").then(() => {
+    console.log(`Database connection established`);
+}).catch((err) => {
+    console.log(`Connection is not established due to error: ${err}`);
+})
+
+// exports.modules = {}
 // connectivity
 
 
@@ -36,7 +49,7 @@ import DataFetch from "./models/tempSchema"
 //         ).catch((err) => {
 //             console.log(err);
 //         })
-//         console.log('Data Sent Successfully');  
+//         console.log('Data Sent Successfully');
 
 //     }
 // }
@@ -46,7 +59,7 @@ import DataFetch from "./models/tempSchema"
 
 // const exportData = async (req,res) => {
 //     try {
-        
+
 //         const workbook = new exceljs.Workbook();
 //         const worksheet = workbook.addWorksheet('TemperatureData'); //Create an excel sheet with the name Temperature Data
 
@@ -97,3 +110,4 @@ import DataFetch from "./models/tempSchema"
 // }
 
 // exportData();
+
